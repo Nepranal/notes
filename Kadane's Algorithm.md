@@ -6,10 +6,10 @@ Kadane’s algorithm deals with the problem of finding between all possible cont
 def max_subarray(numbers):
 	"""Find the largest sum of any contiguous subarray."""
 	best_sum = float('-inf')
-  current_sum = 0
+	current_sum = 0
 	for x in numbers:
-	      current_sum = max(x, current_sum + x)
-	      best_sum = max(best_sum, current_sum)
+			current_sum = max(x, current_sum + x)
+			best_sum = max(best_sum, current_sum)
 	return best_sum
 ```
 
