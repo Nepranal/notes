@@ -8,7 +8,7 @@
 
 # Problem Model
 
-A way to approach the problem is to consider at first the different absolute cases you may face. For instance, the cases where a child cannot be sat with another child. If x = 10, this would happen when the child has a weight of exactly 10. Or 9, or 8, or basically any weight > 10. In general, if the child has a weight > x/2, that child will be alone in a gondola.
+A way to approach the problem is to consider at first the different absolute cases you may face. For instance, the cases where a child cannot be sat with another child. If x = 10, this would happen when the child has a weight of exactly 10. Or 9, or 8, or basically any weight > 5. In general, if the child has a weight > x/2, that child will be alone in a gondola.
 
 You could've also inferred that if the child has a weight of <= x/2, then that child can be grouped with anyone within the same category and any ordering will work just fine.
 

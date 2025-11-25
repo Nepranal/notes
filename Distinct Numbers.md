@@ -31,13 +31,10 @@ To achieve this however, you'll need to use the number, and only the number, to 
 
 ```python
 n = int(input())
-arr = sorted([int(x) for x in input().split()])
-
-count = 1
-for i in range(1, len(arr)):
-    if arr[i] != arr[i - 1]:
-        count += 1
-print(count)
+d = dict({})
+for x in input().split():
+    d[x] = 1
+print(len(d.keys()))
 ```
 
 # Reference

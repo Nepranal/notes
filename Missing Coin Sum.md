@@ -10,7 +10,7 @@ Let's generalize a little bit. Assume for a second that our current array, $arr_
 
 Now, let's add a new value $n$ from $arr_{old}$ to $arr_{new}$. If $S - n < 0$ then the sum is indeed the smalllest we cannot create because we know that without $n$ we cannot create it and with $n$ it requires a subset of the current array that sums to a negative value which is smaller than our assumed smallest value i.e. '1'. Adding another value won't help since it will be bigger than or equal to $n$.
 
-Now, what if we can indeed get the smallest sum. Well, then we add $n$ to $arr_{new}$ and compute the next smallest sum. say next smallest sum is $S'$. The next smallest number, you can try to find this by messing around, is $n + S$. This is because, we know that $n + (S - 1)$ can be represented but the number after that will not since to create $S$ you'll need $n$. And, this must be the next one since it's the smallest one after the maximum number you can create.
+Now, what if we can indeed get the smallest sum. Well, then we add $n$ to $arr_{new}$ and compute the next smallest sum. say next smallest sum is $S'$. The next smallest number, you can try to find this by messing around, is $n + S$. This is because, we know that $n + (S - 1)$ can be represented but to create $n + S$, you'll need to allocate $n$ in $S$'s creation and hope that you can create another $n$ with what's left. This is impossible. If you can do this, you'll violate our assumption that the array without $n$ cannot make $S$.
 
 # Implementation
 

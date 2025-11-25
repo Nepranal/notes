@@ -8,7 +8,7 @@ A naive solution would be to find all possible 2 pair of numbers from the array.
 
 Though, is it true that this is as fast as we can make it? Not at all. Consider that the first number we choose could be any other number in the array. However, the 2nd number is determined once the first one is picked i.e. $a_2 = x - a_1$. If the array is sorted, the search for $a_2$ can be done with binary search. This would lead to $O(nlg(n))$
 
-Turns out, we can push this even further with a sorted array. Say we have picked 2 numbers at the edges of $arr$ with indices 0 and $N - 1$ where $N$ is length of $arr$. Also say that $arr$ is sorted ascendingly and let $a_j = arr[i]$. If the sum $s = a_0 + a_{N-1}$ is bigger than the target $x$, we can get rid of the rightmost element since it will never be part of a solution. Any other number summed with $a_{N-1}$ will always be bigger than $x$. You can make a similar argument with $s < x$. You can keep doing this until either the solution is found or the array is has $\le1$ element left
+Turns out, we can push this even further with a sorted array. Say we have picked 2 numbers at the edges of $arr$ with indices 0 and $N - 1$ where $N$ is length of $arr$. Also say that $arr$ is sorted ascendingly and let $a_i = arr[i]$. If the sum $s = a_0 + a_{N-1}$ is bigger than the target $x$, we can get rid of the rightmost element since it will never be part of a solution. Any other number summed with $a_{N-1}$ will always be bigger than $x$. You can make a similar argument with $s < x$. You can keep doing this until either the solution is found or the array is has $\le1$ element left
 
 # Implementation
 
