@@ -20,7 +20,7 @@ The negative sign is put here because the current direction will be the same as 
 
 $$J = q\left(D_n\frac{dn}{dx} - D_p\frac{dp}{dx}\right)$$
 
-# Disappearing Electrons?
+## Disappearing Electrons?
 
 Consider the following:
 ![alt text](<sources/Diffusion, Intro. to PN Junctions/Screenshot 2025-11-24 at 10.04.02 AM.png>)

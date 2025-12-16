@@ -14,14 +14,14 @@ How? By speculative execution which can mask that big network overhead. In distr
 The improvements being proposed by MAKO is to use 2PC in a speculative manner i.e. Instead of waiting for everybody to vote, just execute the transaction. If there is something bad, simply rollback the affected transactions. This of course sounds simple but finding which transactions are affected and how to manage them in an efficient way is a difficult task though it is another improvement MAKO promises to make.
 
 > Overall, MAKO is going to:
-1. Introduce an architecture that allows it to safely speculate without having to wait for the results of geo-replication
-2. Keep track of very little information that is efficient to collect and
-yet sufficient to avoid unbounded cascading aborts.
-> 
+>
+> 1.  Introduce an architecture that allows it to safely speculate without having to wait for the results of geo-replication
+> 2.  Keep track of very little information that is efficient to collect and
+>     yet sufficient to avoid unbounded cascading aborts.
 
 # Main Mechanisms
 
-![The basic setup](sources/MAKO%20Speculative%20Distributed%20Transactions%20with%20Geo%202601aa5d8a0e807995affc59d1dc4969/Untitled_Diagram.drawio_(3).png)
+![The basic setup](<sources/MAKO%20Speculative%20Distributed%20Transactions%20with%20Geo%202601aa5d8a0e807995affc59d1dc4969/Untitled_Diagram.drawio_(3).png>)
 
 The basic setup
 
@@ -51,7 +51,7 @@ A One-shot transactions would update both sets.
 
 ---
 
-**But why split them into a read set and a write set?** The problem lies with concurrency. 
+**But why split them into a read set and a write set?** The problem lies with concurrency.
 
 For reads, you’d need a sort of anchor where you can assert your current transaction used so and so’s data. You need to store this information. Even if you don’t use a set, logically you’ll still need to store them somehow
 
@@ -100,7 +100,7 @@ Replication’s stage goes as you typically would with any consensus protocol. J
 - Transaction log
 - Per-core replication log - Stream
 
-The transaction log belongs to the leader. 
+The transaction log belongs to the leader.
 
 The per-core application log is a partitioned transaction log where each partition is handled by a core of the shard. Each partition is completely independent from one another. This is good for scalability but bad for consistency.
 
@@ -108,15 +108,13 @@ Now, the replay stage. Before getting knees deep, lets consider why care must be
 
 - Across shard inconsistency
 - Across Transaction inconsistency
-    
-    ![Screenshot 2025-09-12 at 2.14.52 AM.png](sources/MAKO%20Speculative%20Distributed%20Transactions%20with%20Geo%202601aa5d8a0e807995affc59d1dc4969/Screenshot_2025-09-12_at_2.14.52_AM.png)
-    
+  ![Screenshot 2025-09-12 at 2.14.52 AM.png](sources/MAKO%20Speculative%20Distributed%20Transactions%20with%20Geo%202601aa5d8a0e807995affc59d1dc4969/Screenshot_2025-09-12_at_2.14.52_AM.png)
 
 Different naming aside, they basically mean that there could be problem if let’s say op#1 never executes because of shard failure by op#2 is successfully replicated if op#2 depends on op#1. Another case is when T2 (op#3, op#4) are successful and T1 fails (either op#1 or op#2 fails) and that stuff in T2 depends on stuff in T1. If the different cores are just blindly replicating, such situations could happen.
 
-How to deal with this? Well, they’re dependencies related and luckily we have something that works within that domain we can try; the vector clock. What we need here is to make sure the dependencies of the replicated transaction is present. From the properties this means the vector clock smaller than the current clock must already be replicated. For this, let me introduce: vector watermark. 
+How to deal with this? Well, they’re dependencies related and luckily we have something that works within that domain we can try; the vector clock. What we need here is to make sure the dependencies of the replicated transaction is present. From the properties this means the vector clock smaller than the current clock must already be replicated. For this, let me introduce: vector watermark.
 
-A vector watermark is essentially the same thing as a vector clock (both a vector with $N$ entries) but the computation of a vector watermark is a little different: 
+A vector watermark is essentially the same thing as a vector clock (both a vector with $N$ entries) but the computation of a vector watermark is a little different:
 
 ![Screenshot 2025-09-12 at 2.22.26 AM.png](sources/MAKO%20Speculative%20Distributed%20Transactions%20with%20Geo%202601aa5d8a0e807995affc59d1dc4969/Screenshot_2025-09-12_at_2.22.26_AM.png)
 
@@ -126,7 +124,7 @@ The vector watermark is used to test whether or not the current transaction can 
 
 ---
 
-The non-replicated transactions are free to be in the replication process. Take for example say $S_0$ (9,*,*) and (7,*,*) are replicated. The vector stream now updates to $\begin{pmatrix}7&2&4\end{pmatrix}$. Even if we so, the other shards will not be affected until the preceding transactions of $S_0$ are committed since the comparison of bigger and smaller is pair-wise.
+The non-replicated transactions are free to be in the replication process. Take for example say $S_0$ (9,_,_) and (7,_,_) are replicated. The vector stream now updates to $\begin{pmatrix}7&2&4\end{pmatrix}$. Even if we so, the other shards will not be affected until the preceding transactions of $S_0$ are committed since the comparison of bigger and smaller is pair-wise.
 
 ---
 

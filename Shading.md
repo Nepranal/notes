@@ -38,7 +38,7 @@ I thought that it's kind of weird that we already have $\alpha$ so why do we nee
 We can then put together our diffused model and the specular reflection to get the phong specular model. You can think of it as we're adding extra effects on top of one another:
 
 $$C = IK_dcos(\theta) + IK_s(cos(\phi))^\alpha$$
-$$C=Icos(\theta)(K_d+\frac{K_dcos(\phi)^\alpha}{cos(\theta)})\tag{1}$$
+$$C=Icos(\theta)(K_d+\frac{K_scos(\phi)^\alpha}{cos(\theta)})\tag{1}$$
 
 $(1)$ is how it's usually written. since the incident angle should also affect the specular reflection.
 
