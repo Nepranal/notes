@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I wanted a more consistent way of creating CVs/resumes,
+% so I made a few environments for adding content.
+% There's {education}, {research_exp}, and {employment}.
+% They take certain arguments, such as start and end dates,
+% which are automatically placed into position on the
+% document. Use a separate instance of each for each item
+% on your CV.
+% Publications are rendered with \fullcite, which pulls
+% bibtex items from references.bib.
+%
+% Published by Hannah W Richards
+% Creative Commons CC BY 4.0 License
+% Originally published September 2019
+% Revised March 2020
+% Revised November 2020
+%
+% hannah.willow.richards@gmail.com
+% Please use this template as you wish, and feel free to
+% send me an email if you were able to put it to good use!
+% I always like to hear from people. If you modify and
+% republish the template, please attribute me.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{cv}
+
+\usepackage[top=0.5in, left=0.5in, right=0.5in, bottom=0.5in]{geometry}
+\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+
+% You can place bibtex citatinos for your publications in the references.bib file, which is called here. You can download bibtex citations for your publications so that you don't have to type all the information in for each one.
+\addbibresource{references.bib}
+
+\begin{document}
+	\begin{center}
+	    \textit{R\'esum\'e}\\
+        % \textit{Curriculum Vitae}\\
+		{\Large \textbf{Harsono Abel Haris}\par}
+		\href{mailto:harsonoabel@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  harsonoabel@gmail.com} ~ 
+        \href{https://github.com/Nepranal/notes}{\raisebox{-0.2\height}\faGithub\ Nepranal}
+	\end{center}
+	\vspace{-0.15in}
+	\rule{\textwidth}{1pt}
+	% \vspace{0.05in}
+
+% The education environment is used like:
+%
+%   \begin{education}{start date}{end date}{degree}{field of study}{school name}{school location}{GPA}
+%
+%       Extra details of degree.
+%
+%   \end{education}
+
+	\section*{Education}
+	\begin{education}{Sep. 2021}{Jun. 2020}{Bachelor of Engineering}{Computer Engineering}{The University of Hong Kong}{Hong Kong}{3.64 / 4.30}
+	   First Class Honours\\
+       Dean's Honours List (2024 - 2025)
+	\end{education}
+
+    % The employment environment is used like:
+%
+%   \begin{employment}{start date}{end date}{position}{place of employment}
+%
+%       Description of employment.
+%
+%   \end{research_exp}
+	
+	\section*{Employment}
+	\begin{employment}{January 2024}{October 2025}{Software Engineer}{Rabbit Credit Limited, Hong Kong}
+        Worked on a secure Java Spring Boot application that's integrated with HKMA's ICLNET2 system as well as \href{https://github.com/Nepranal/notes/blob/main/Considerations%20In%20Building%20A%20Backend%20For%20Management%20Systems.md}{Loan Management} related applications utilizing PERN, Docker, Nginx, and GitHub Actions to automate CI/CD pipelines and streamline development environments.
+	\end{employment}
+
+    \begin{employment}{June 2023}{August 2023}{Automation Engineer Intern}{InstantShare Technology Limited, Hong Kong}
+        Developed a bug management system integrating Slack, Excel, and App Script for interactive tester-developer workflows, and built a Flutter-based Web3 PoC with an in-app trading functionality.
+	\end{employment}
+	\vspace{-0.2in}
+
+    % The research_exp environment is used like:
+%
+%   \begin{research_exp}{start date}{end date}{title}{place}{advisor}
+%
+%       Description of research.
+%
+%   \end{research_exp}
+	
+	\section*{Research}
+	\begin{research_exp}{September 2024}{May 2025}{\href{https://github.com/Nepranal/chained-reconstructions}{Large 3D Reconstruction By Chaining}}{The University of Hong Kong}{Dr. Xiaojuan Qi}
+        Developed an approach for performing 3D reconstruction for large scenes by chaining smaller reconstructions which allows for an efficient and simpler reconstruction processes.
+	\end{research_exp}
+    \vspace{-0.2in}
+	
+	% % Pull in your citations from references.bib, referring to them by their catchy names.
+	\begin{adjustwidth}{}{\rightedge}
+    \section*{Projects}
+	\begin{itemize}
+		\item {\textbf{24 Card Game}} \textit{Java RMI, Java Swing, JDBC, glassfish}
+	    \item {\href{https://github.com/Nepranal/Learned-Step-Size-Quantization}{\textbf{Learned Step-Size Quantization}}} \textit{Pytorch}
+    \end{itemize}
+    \vspace{-0.2in}
+    
+    \section*{Honors and awards}
+	\begin{itemize}
+	    \item Entrance Scholarships in Electrical and Electronic Engineering (2023)
+	    \item Undergraduate Research Fellowship Programme and Research Internship Award (2024)
+    \end{itemize}
+    \vspace{-0.2in}
+
+    \section*{Miscellaneous}
+    \begin{itemize}
+        \item \textit{Languages}: English (Proficient), Indonesian (Native)
+        \item \textit{Research Interests}: Distributed Systems, Computer Vision
+        \item \textit{Frameworks}: Flutter, SwiftUI, Spring-Boot, Express, Hadoop, Spark, Redux, PERN, MERN
+    \end{itemize}
+    \end{adjustwidth}
+
+\end{document}

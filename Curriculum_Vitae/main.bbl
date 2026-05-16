@@ -1,0 +1,79 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{esser2020learnedstepsizequantization}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=2e1cf15d1f64674f612a4305f99c0149}{%
+           family={Esser},
+           familyi={E\bibinitperiod},
+           given={Steven\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=130d03095163b9b00b1577105c1238d0}{%
+           family={McKinstry},
+           familyi={M\bibinitperiod},
+           given={Jeffrey\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=e079114c49becc2c4ef438d2799d0d1d}{%
+           family={Bablani},
+           familyi={B\bibinitperiod},
+           given={Deepika},
+           giveni={D\bibinitperiod}}}%
+        {{hash=be8bff2fda6f31713e9bcdcb0cb935bb}{%
+           family={Appuswamy},
+           familyi={A\bibinitperiod},
+           given={Rathinakumar},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c7d91a7b0d3d0bedbcfc0d0149773d3a}{%
+           family={Modha},
+           familyi={M\bibinitperiod},
+           given={Dharmendra\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{caf7e50ac756a209265171d17bc9b68f}
+      \strng{fullhash}{d914260593815d2d9e6ded1bb719bc88}
+      \strng{fullhashraw}{d914260593815d2d9e6ded1bb719bc88}
+      \strng{bibnamehash}{caf7e50ac756a209265171d17bc9b68f}
+      \strng{authorbibnamehash}{caf7e50ac756a209265171d17bc9b68f}
+      \strng{authornamehash}{caf7e50ac756a209265171d17bc9b68f}
+      \strng{authorfullhash}{d914260593815d2d9e6ded1bb719bc88}
+      \strng{authorfullhashraw}{d914260593815d2d9e6ded1bb719bc88}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Learned Step Size Quantization}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 1902.08153
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1902.08153
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1902.08153
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

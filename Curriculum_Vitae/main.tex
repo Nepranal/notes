@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I wanted a more consistent way of creating CVs/resumes,
+% so I made a few environments for adding content.
+% There's {education}, {research_exp}, and {employment}.
+% They take certain arguments, such as start and end dates,
+% which are automatically placed into position on the
+% document. Use a separate instance of each for each item
+% on your CV.
+% Publications are rendered with \fullcite, which pulls
+% bibtex items from references.bib.
+%
+% Published by Hannah W Richards
+% Creative Commons CC BY 4.0 License
+% Originally published September 2019
+% Revised March 2020
+% Revised November 2020
+%
+% hannah.willow.richards@gmail.com
+% Please use this template as you wish, and feel free to
+% send me an email if you were able to put it to good use!
+% I always like to hear from people. If you modify and
+% republish the template, please attribute me.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{cv}
+
+\usepackage[top=0.75in, left=1.0in, right=1.0in, bottom=1.25in]{geometry}
+\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+
+% You can place bibtex citatinos for your publications in the references.bib file, which is called here. You can download bibtex citations for your publications so that you don't have to type all the information in for each one.
+\addbibresource{references.bib}
+
+\begin{document}
+	\begin{center}
+	    % \textit{R\'esum\'e}\\
+        \textit{Curriculum Vitae}\\
+		{\Large \textbf{Harsono Abel Haris}\par}
+		\href{mailto:harsonoabel@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  harsonoabel@gmail.com} ~ 
+        \href{https://github.com/Nepranal/notes}{\raisebox{-0.2\height}\faGithub\ Nepranal}
+	\end{center}
+	\vspace{-0.15in}
+	\rule{\textwidth}{1pt}
+	\vspace{0.05in}
+
+% The education environment is used like:
+%
+%   \begin{education}{start date}{end date}{degree}{field of study}{school name}{school location}{GPA}
+%
+%       Extra details of degree.
+%
+%   \end{education}
+
+	\section*{Education}
+	\begin{education}{Sep. 2021}{Jun. 2020}{Bachelor of Engineering}{Computer Engineering}{The University of Hong Kong}{Hong Kong}{3.64 / 4.30}
+	   First Class Honours\\
+       Dean's Honours List (2024 - 2025)
+	\end{education}
+	\vspace{0.2in}
+	
+% The research_exp environment is used like:
+%
+%   \begin{research_exp}{start date}{end date}{title}{place}{advisor}
+%
+%       Description of research.
+%
+%   \end{research_exp}
+	
+	\section*{Research}
+	\begin{research_exp}{September 2024}{May 2025}{\href{https://github.com/Nepranal/chained-reconstructions}{Large 3D Reconstruction By Chaining}}{The University of Hong Kong}{Dr. Xiaojuan Qi}
+		\begin{itemize}
+    	    \item Developed an approach for performing 3D reconstruction for large scenes by chaining smaller reconstructions which allows for an efficient and simpler reconstruction processes.
+        \end{itemize}
+	\end{research_exp}
+    \vspace{0.2in}
+
+    % The employment environment is used like:
+%
+%   \begin{employment}{start date}{end date}{position}{place of employment}
+%
+%       Description of employment.
+%
+%   \end{research_exp}
+	
+	\section*{Employment}
+	\begin{employment}{January 2024}{October 2025}{Software Engineer}{Rabbit Credit Limited, Hong Kong}
+	    \begin{itemize}
+    	    \item Worked in a team of 3 - 4 people to develop a Java spring-boot application for integration with the ICLNET2 system by HKMA that handles sensitive customer data
+            \item Developed an application development pipeline using github actions and docker containers deployed on a windows server to simplify and automate deployment
+            \item Created isolated systems that can communicate with one another by utilizing Docker containers and Nginx allowing for less constraints in development processes.
+            \item Developed a \href{https://github.com/Nepranal/notes/blob/main/Considerations%20In%20Building%20A%20Backend%20For%20Management%20Systems.md}{Loan Management System} with the PERN stack for a more efficient and customizable loan lending platform
+        \end{itemize}
+	\end{employment}
+
+    \begin{employment}{January 2025}{May 2025}{Student Teaching Assistant - ENGG1330}{The University of Hong Kong, Hong Kong}
+	    \begin{itemize}
+    	    \item Hold weekly tutorial session to aid students attending the course to ease them into programming with Python.
+            \item Create tutorial problems weekly for students to solve during tutorial sessions to confirm and challenge their understanding.
+        \end{itemize}
+	\end{employment}
+
+    \begin{employment}{December 2024}{January 2025}{STEM Tutor}{Hong Kong Chamber of Speech and Debate, Hong Kong}
+	    \begin{itemize}
+    	    \item Taught middle school students basics of robotics and computing using Arduino
+            \item Held several cases for english debate classes for primary school students
+        \end{itemize}
+	\end{employment}
+
+    \begin{employment}{June 2023}{August 2023}{Automation Engineer Intern}{InstantShare Technology Limited, Hong Kong}
+	    \begin{itemize}
+    	    \item Used Slack, Excel Sheet and App Script to develop a simple task management system which allows for more flexibility and interactivity between application testers and developers
+            \item Developed a PoC for a web3 application using Flutter that allows for trading solely within through the app removing the need of going to a different app during a transaction
+        \end{itemize}
+	\end{employment}
+
+    \begin{employment}{January 2023}{May 2023}{Student Teaching Assistant - ENGG1340}{The University of Hong Kong, Hong Kong}
+	    \begin{itemize}
+    	    \item Held Q\&A sessions for student attending the course
+        \end{itemize}
+	\end{employment}
+
+    \begin{employment}{June 2022}{August 2022}{Quality Assurance Engineer Intern}{The University of Hong Kong, Hong Kong}
+	    \begin{itemize}
+    	    \item Worked in a team of around 7 people for running and creating test cases for benchmarking a mobile application used for file sharing across devices of different models
+        \end{itemize}
+	\end{employment}
+	\vspace{0.2in}
+
+    \section*{Projects}
+
+    \begin{project}{2026}{\href{https://github.com/Nepranal/package-mapper}{Package Mapper}}{springboot, React, D3}
+        \begin{itemize}
+            \item A visualizer that utilises D3.js to visualize dependencies between files from a github repository's commit history as a graph
+        \end{itemize}
+	\end{project}
+
+	\begin{project}{2025}{Image Scaling Service}{S3 Bucket, SQS}
+        \begin{itemize}
+            \item Deployed an amazon aws node that can accept requests of resizing an image.
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2025}{24 Card Game}{Java RMI, Java Swing, JDBC, glassfish}
+        \begin{itemize}
+    	    \item Developed a game server and client for playing the 24 card game. The game server contains a play room for 2-4 players and a timeout mechanism.
+            \item Used MySQL database using JDBC to store game information and to display game-related information
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2024}{\href{https://github.com/Nepranal/Learned-Step-Size-Quantization}{Learned Step-Size Quantization}}{Pytorch}
+        \begin{itemize}
+    	    \item Implemented an unofficial implementation of the Learned Step Size Quantization method (\fullcite{esser2020learnedstepsizequantization})
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2024}{\href{https://github.com/Nepranal/simple-gamehouse}{Simple Networked Gamehouse}}{Python, Multi-threading, Networking}
+        \begin{itemize}
+    	    \item Developed a game server and client that is thread safe utilizing semaphores. The server would allow multiple games in separate rooms to take place at the same time
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2024}{Contemporary Web Apps}{HTML, CSS, JS, React, Express, MongoDB}
+        \begin{itemize}
+    	    \item Developed a web application for fetching airport flight information and a drag-and-drop tic-tac-toe game using html, css, and js
+            \item Developed a course database viewing application with a token based authentication system using Express and mongoose
+            \item Developed an item listing application which allows users to update, upload, and delete items from the list using React. The backend was developed using Express and Mongoose
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2023}{\href{https://github.com/Nepranal/musicdecoder}{Music Decoder}}{FPGA}
+        \begin{itemize}
+    	    \item Developed a decoder that can decode a sound byte that contains a message. The decoder consists of 3 main components: Signal decoder, Symbol decoder, and a UART component. The message can be viewed with softwares like putty.
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2023}{\href{https://github.com/Nepranal/multithreaded-llama2}{Multi-threaded llama2}}{C, Multi-threading}
+        \begin{itemize}
+    	    \item Modified a Large Language Model (LLM) by Andrej Karpathy. In particular, the matrix multiplication part of the code was changed so it can be done in parallel. This results in quicker story generation by the LLM.
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2023}{Automated Library Cataloging Robot}{Raspberry PI, Arduino, RFID}
+        \begin{itemize}
+    	    \item A group project which comprises of 4 members. We developed an Automated Guided Vehicle which can follow a certain path to scan books and other related things that have an RFID tag using an RFID scanner. To reach higher levels, the robot has a lift on which the scanners are attached. The robot also has an authentication system using fingerprint detection. The whole robot can be operated with a touch screen.
+        \end{itemize}
+	\end{project}
+
+    \begin{project}{2023}{\href{https://github.com/Nepranal/tic-tac-toe}{Web Socket Tic-Tac-Toe}}{Java}
+        \begin{itemize}
+    	    \item A Two player tic-tac-toe game developed using web sockets following a server-client communication model.
+        \end{itemize}
+	\end{project}
+    \vspace{0.2in}
+	
+	% % Pull in your citations from references.bib, referring to them by their catchy names.
+	\begin{adjustwidth}{}{\rightedge}
+    \section*{Honors and awards}
+	\begin{itemize}
+	    \item Entrance Scholarships in Electrical and Electronic Engineering (2023)
+	    \item Undergraduate Research Fellowship Programme and Research Internship Award (2024)
+    \end{itemize}
+    \vspace{0.2in}
+
+    \section*{Miscellaneous}
+    \begin{itemize}
+        \item \textit{Languages}: English (Proficient), Indonesian (Native)
+        \item \textit{Research Interests}: Distributed Systems, Computer Vision
+    \end{itemize}
+    \end{adjustwidth}
+
+\end{document}
