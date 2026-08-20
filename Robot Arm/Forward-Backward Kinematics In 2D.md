@@ -108,10 +108,10 @@ In the case for which you have 2 links, you can somewhat manage and solve this s
 If you write out $(2)$, for a given $(x,y)$ in $F$, you'll have the following system
 
 $$
-x\cos(\Theta) + y\sin(\Theta) = -L_1\cos\theta_2 - L_2\tag{3}
+x\cos(\Theta) + y\sin(\Theta) = L_1\cos\theta_2 + L_2\tag{3}
 $$
 $$
--x\sin(\Theta) + y\cos(\Theta) = L_1\sin\theta_2\tag{4}
+-x\sin(\Theta) + y\cos(\Theta) = -L_1\sin\theta_2\tag{4}
 $$
 
 These are systems of non-linear equations so solving them is a little tricky. We'll start by squaring both equations and adding them together. You'll get
@@ -132,8 +132,8 @@ given that $L_1,L2\neq0$. If either one is zero, this case becomes a one link pr
 At this point, it'd be nice to set the constants that we get from $\theta_2$ as some variable
 
 $$
-A = -L_1\cos\theta_2 - L_2\\
-B = L_2\sin\theta_2
+A = L_1\cos\theta_2 + L_2\\
+B = -L_1\sin\theta_2
 $$
 
 so our equations become
@@ -154,33 +154,42 @@ $$
 -\sin\phi\sin(\Theta) + \cos\phi\cos(\Theta)=\cos(\phi+\Theta) = B/r
 $$
 
-we can sum these and use the same approach to give
+Now we'll have 3 cases tp consider: 
 
 $$
-\sin(\Theta+\phi+\alpha) = \frac{A+B}{r\sqrt{2}} \tag{6}
+\Theta = \begin{cases} 
+      \arctan(\frac{A}{B}) & B>0 \\
+      \pi + \arctan(\frac{A}{B}) & B<0 \\
+      \frac{\pi}{2}, \frac{3\pi}{2} & B=0 
+   \end{cases}
 $$
 
-Where $\tan\alpha = 1$.
+where for $B=0$ depends on A's sign
+
+> Don't sum and repeat the same technique. The solution to that new equation won't necessarily be equal to it's part
 
 Now, what if $y=0$? Then we'll have 
 
 $$
-x\cos(\Theta) = A
-$$
-$$
+x\cos(\Theta) = A\\
 -x\sin(\Theta) = B
 $$
 
-if we take the sum of our system
+Which we can rewrite as
 
 $$
-x\cos\Theta - x\sin\Theta = A+B
+x\cos(-\Theta) = x\cos(\alpha) = A\\
+x\sin(-\Theta) = x\sin(\alpha) = B
 $$
 
-Solving this with substitutions like before, we can get
+where $-\Theta = \alpha$ and the solution is similar to before
 
 $$
-\cos(\alpha + \theta) = \frac{A+B}{x\sqrt{2}}\tag{7}
+\Theta = \begin{cases} 
+      \arctan(\frac{B}{A}) & A>0 \\
+      \pi - \arctan(\frac{B}{A}) & A<0 \\
+      \frac{\pi}{2}, \frac{3\pi}{2} & A=0 
+   \end{cases}
 $$
 
 # References
