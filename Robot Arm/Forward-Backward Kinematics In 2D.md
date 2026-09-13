@@ -192,6 +192,44 @@ $$
    \end{cases}
 $$
 
+# 2D Inverse Kinematics As Intersecting Circles
+
+The previous section presented a rather complicated approach to reach a solution since it involves solving a system of trigonometric functions. We can pursue a simpler solution by considering an intersection of circles.
+
+Consider a case of 2 links trying to reach a point $\vec{x}$. We can draw an imaginary circle of radius $L_2$ around that point.
+
+{Image here}
+
+Now, if our first link can be at any point on that circle, we can definitely reach $\vec{x}$ by adjusting the 2nd link accordingly. Since the first link moves in a circle, our goal then is to solve for the intersection created by the two circles. In other words, solve:
+
+$$
+x^2+y^2=L_1^2 \tag{6}$$
+$$
+(x-x_1)^2+(y-x_2)^2=L_2^2 \tag{7}
+$$
+
+where $\vec{x} = [x_1,x_2]$. This is hopefully bit simpler than the trigonometric system
+
+Once we've solved for $x$ and $y$, we can easily get $\theta_1$ because 
+
+$$
+\tan(\theta_1) = \frac{y}{x}
+$$
+
+(given non-zero x)
+
+If we can solve for $\theta_1$, then we can solve for $\theta_2$ as well by following similar procedure. However, we'll have to transform $\vec{x}$ w.r.t the end of the first link's end affecter. This, can be done by the following matrix:
+
+$$
+\begin{bmatrix}
+\cos(\theta_1) && \sin(\theta_1) && -L_1\\
+-\sin(\theta_1) && \cos(\theta_1) && 0\\
+0 && 0 && 1
+\end{bmatrix}
+$$
+
+This idea of circles I believe can be extended to 3D cases (spheres instead of circles) as well as with a more general case of $n$ links robot arm.
+
 # References
 
 1. https://www.youtube.com/watch?v=_8T7RjXL07M
