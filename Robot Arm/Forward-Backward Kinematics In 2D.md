@@ -198,7 +198,7 @@ The previous section presented a rather complicated approach to reach a solution
 
 Consider a case of 2 links trying to reach a point $\vec{x}$. We can draw an imaginary circle of radius $L_2$ around that point.
 
-{Image here}
+![alt text](<src/Forward-Backward Kinematics/intersection.jpeg>)
 
 Now, if our first link can be at any point on that circle, we can definitely reach $\vec{x}$ by adjusting the 2nd link accordingly. Since the first link moves in a circle, our goal then is to solve for the intersection created by the two circles. In other words, solve:
 
