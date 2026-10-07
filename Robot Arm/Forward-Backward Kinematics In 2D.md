@@ -110,6 +110,7 @@ If you write out $(2)$, for a given $(x,y)$ in $F$, you'll have the following sy
 $$
 x\cos(\Theta) + y\sin(\Theta) = L_1\cos\theta_2 + L_2\tag{3}
 $$
+
 $$
 -x\sin(\Theta) + y\cos(\Theta) = -L_1\sin\theta_2\tag{4}
 $$
@@ -141,6 +142,7 @@ so our equations become
 $$
 x\cos(\Theta) + y\sin(\Theta) = A
 $$
+
 $$
 -x\sin(\Theta) + y\cos(\Theta) = B
 $$
@@ -150,17 +152,18 @@ To solve such a system we'll use substitution by imagining an imaginary angle $\
 $$
 \sin\phi\cos(\Theta) + \cos\phi\sin(\Theta) =\sin(\phi+\Theta)= A/r
 $$
+
 $$
 -\sin\phi\sin(\Theta) + \cos\phi\cos(\Theta)=\cos(\phi+\Theta) = B/r
 $$
 
-Now we'll have 3 cases tp consider: 
+Now we'll have 3 cases tp consider:
 
 $$
-\Theta = \begin{cases} 
+\Theta = \begin{cases}
       \arctan(\frac{A}{B}) & B>0 \\
       \pi + \arctan(\frac{A}{B}) & B<0 \\
-      \frac{\pi}{2}, \frac{3\pi}{2} & B=0 
+      \frac{\pi}{2}, \frac{3\pi}{2} & B=0
    \end{cases}
 $$
 
@@ -168,7 +171,7 @@ where for $B=0$ depends on A's sign
 
 > Don't sum and repeat the same technique. The solution to that new equation won't necessarily be equal to it's part
 
-Now, what if $y=0$? Then we'll have 
+Now, what if $y=0$? Then we'll have
 
 $$
 x\cos(\Theta) = A\\
@@ -185,10 +188,10 @@ $$
 where $-\Theta = \alpha$ and the solution is similar to before
 
 $$
-\Theta = \begin{cases} 
+\Theta = \begin{cases}
       \arctan(\frac{B}{A}) & A>0 \\
       \pi - \arctan(\frac{B}{A}) & A<0 \\
-      \frac{\pi}{2}, \frac{3\pi}{2} & A=0 
+      \frac{\pi}{2}, \frac{3\pi}{2} & A=0
    \end{cases}
 $$
 
@@ -203,14 +206,52 @@ Consider a case of 2 links trying to reach a point $\vec{x}$. We can draw an ima
 Now, if our first link can be at any point on that circle, we can definitely reach $\vec{x}$ by adjusting the 2nd link accordingly. Since the first link moves in a circle, our goal then is to solve for the intersection created by the two circles. In other words, solve:
 
 $$
-x^2+y^2=L_1^2 \tag{6}$$
+x^2+y^2=L_1^2 \tag{6}
+$$
+
 $$
 (x-x_1)^2+(y-x_2)^2=L_2^2 \tag{7}
 $$
 
 where $\vec{x} = [x_1,x_2]$. This is hopefully bit simpler than the trigonometric system
 
-Once we've solved for $x$ and $y$, we can easily get $\theta_1$ because 
+By expanding $(7)$, we'll get
+
+$$
+x^2-2x_1x+x_1^2+y^2-2x_2y+x_2^2 = L_2^2
+\\\,\\
+x^2+y^2-2(x_1x+x_2y)+x_1^2+x_2^2 = L_2^2
+$$
+
+After some rearrangement and using the first equation:
+
+$$
+x_1x+x_2y = \frac{L_1^2 - L_2^2 + |\vec{x}|^2}{2} = k
+$$
+
+Which is an equation for a line. If we assume $x_2\neq0$, then we can get a quadratic equation
+
+$$
+x^2 + \left(\frac{k-x_1x}{x_2}\right)^2 = L_1^2
+\\\,\\
+(x_2x)^2+k^2-2x_1kx+(x_1x)^2=(L_1x_2)^2
+\\\,\\
+x^2|\vec{x}|^2-2x_1kx + k^2 - (L_1x_2)^2 = 0
+$$
+
+The determinant of such an equation being
+
+$$
+\Delta = 4x_1^2k^2 - 4|\vec{x}|^2(k^2-L_1^2x_2^2) = 4(x_1^2k^2-|\vec{x}|^2k^2+|\vec{x}|^2L_1^2x_2^2)\\
+\\\,\\
+= 4(|\vec{x}|^2(L_1^2x_2^2) - x_2^2k^2) = 4x_2^2(L_1^2|\vec{x}|^2-k^2)
+$$
+
+> If you write out the quadratic solution in full, you'll find that the factor of 4 can be removed
+
+If $x2=0$, then $x = k/x_1$ and $y = \plusmn\sqrt{L_1^2-x^2}$
+
+Once we've solved for $x$ and $y$, we can easily get $\theta_1$ because
 
 $$
 \tan(\theta_1) = \frac{y}{x}
