@@ -10,6 +10,8 @@ As the picture would already give away, in order to turn the figure into a chess
 
 The other problematic part is the side 2 x 1. You need to flip them as well so that they will follow the chessboard pattern accordingly. Overall you'll have to cut the board into 25 pieces.
 
+But here's a question: how do we know that this arrangement is the smallest number of pieces we can cut the board into? To have the smallest possible, it must be that each piece is already close to the solution. What you'll find is that the 2x2 blocks are the maximal for which this is true. Any 3 x n rectangles you cut out will violate the condition of being a valid chessboard and will need at least 1 more cut. The 2x2 is the only 2x2 we can find and so is optimal.
+
 # References
 
 1. Levitin, A., & Levitin, M. (2011). Algorithmic puzzles. Oxford University Press.
